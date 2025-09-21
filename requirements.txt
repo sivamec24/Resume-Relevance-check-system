@@ -1,0 +1,10 @@
+streamlit
+pandas
+pdfplumber
+python-docx
+scikit-learn
+spacy
+nltk
+google-generativeai
+python-dotenv
+docx2txt  # Add this line
