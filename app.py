@@ -32,7 +32,7 @@ db = ResumeDatabase()
 # Page configuration
 st.set_page_config(page_title="AI Resume Matcher", layout="wide", initial_sidebar_state="collapsed")
 
-# Advanced Professional CSS with Enhanced Background
+# Professional CSS with Advanced Design
 st.markdown("""
     <style>
     /* Import Professional Fonts */
@@ -40,31 +40,40 @@ st.markdown("""
     
     /* Global Styles */
     :root {
-        --primary: #6366f1;  /* Modern Indigo */
-        --primary-dark: #4f46e5;
-        --secondary: #10b981;  /* Emerald */
-        --accent: #f43f5e;     /* Rose */
-        --warning: #f59e0b;   /* Amber */
-        --dark: #0f172a;
-        --light: #f8fafc;
-        --gray: #64748b;
-        --card-bg: rgba(255, 255, 255, 0.98);
-        --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -6px rgba(0, 0, 0, 0.05);
-        --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        --gradient-2: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
-        --gradient-3: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-        --gradient-4: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+        --primary: #4361ee;  /* Modern Blue */
+        --primary-dark: #3a0ca3;
+        --secondary: #4cc9f0;  /* Light Blue */
+        --accent: #f72585;     /* Pink */
+        --warning: #f8961e;   /* Orange */
+        --dark: #03071e;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --gradient-1: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+        --gradient-2: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
+        --gradient-3: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+        --gradient-4: linear-gradient(135deg, #7209b7 0%, #560bad 100%);
+        --success-bg: rgba(40, 167, 69, 0.15); /* Green background */
+        --success-border: rgba(40, 167, 69, 0.3); /* Green border */
+        --success-text: #155724; /* Dark green text */
+        --error-bg: rgba(220, 53, 69, 0.15); /* Red background */
+        --error-border: rgba(220, 53, 69, 0.3); /* Red border */
+        --error-text: #721c24; /* Dark red text */
+        --info-bg: rgba(23, 162, 184, 0.15); /* Blue background */
+        --info-border: rgba(23, 162, 184, 0.3); /* Blue border */
+        --info-text: #0c5460; /* Dark blue text */
     }
     
     html, body, [class*="css"] {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.9)), 
-                    url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, rgba(3, 7, 30, 0.95), rgba(7, 11, 41, 0.98)), 
+                    url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        color: #000000;  /* Changed to black */
+        color: #ffffff;
         line-height: 1.6;
         min-height: 100vh;
     }
@@ -76,134 +85,27 @@ st.markdown("""
         overflow-x: hidden;
     }
     
-    /* Animated Background Elements */
-    .bg-animation {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        overflow: hidden;
-    }
-    
-    .bg-animation span {
-        position: absolute;
-        display: block;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        animation: move 25s linear infinite;
-        bottom: -150px;
-        border-radius: 50%;
-    }
-    
-    .bg-animation span:nth-child(1) {
-        left: 25%;
-        width: 80px;
-        height: 80px;
-        animation-delay: 0s;
-    }
-    
-    .bg-animation span:nth-child(2) {
-        left: 10%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 2s;
-        animation-duration: 12s;
-    }
-    
-    .bg-animation span:nth-child(3) {
-        left: 70%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 4s;
-    }
-    
-    .bg-animation span:nth-child(4) {
-        left: 40%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 0s;
-        animation-duration: 18s;
-    }
-    
-    .bg-animation span:nth-child(5) {
-        left: 65%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 0s;
-    }
-    
-    .bg-animation span:nth-child(6) {
-        left: 75%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 3s;
-    }
-    
-    .bg-animation span:nth-child(7) {
-        left: 35%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 7s;
-    }
-    
-    .bg-animation span:nth-child(8) {
-        left: 50%;
-        width: 25px;
-        height: 25px;
-        animation-delay: 15s;
-        animation-duration: 45s;
-    }
-    
-    .bg-animation span:nth-child(9) {
-        left: 20%;
-        width: 15px;
-        height: 15px;
-        animation-delay: 2s;
-        animation-duration: 35s;
-    }
-    
-    .bg-animation span:nth-child(10) {
-        left: 85%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-        animation-duration: 11s;
-    }
-    
-    @keyframes move {
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-1000px) rotate(720deg);
-            opacity: 0;
-        }
-    }
-    
     /* Header and Navigation */
     .main-header {
-        background: rgba(15, 23, 42, 0.7);
+        background: rgba(3, 7, 30, 0.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 1.5rem 2rem;
-        margin-bottom: 2rem;
-        border-radius: 0 0 24px 24px;
-        box-shadow: var(--card-shadow);
+        margin-bottom: 1.5rem;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         position: relative;
         z-index: 10;
+        border-left: 4px solid var(--primary);
     }
     
     .main-title {
         font-family: 'Space Grotesk', sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         font-weight: 800;
         color: white;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         margin: 0;
         letter-spacing: -0.025em;
         background: var(--gradient-1);
@@ -212,13 +114,26 @@ st.markdown("""
         background-clip: text;
         text-fill-color: transparent;
         display: inline-block;
+        position: relative;
+        padding-bottom: 15px; /* Added padding to create space for the line */
+    }
+    
+    .main-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0; /* Changed from -8px to 0 to place the line under the text */
+        left: 0;
+        width: 100%; /* Changed from 60px to 100% to make the line span the entire title */
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
     }
     
     .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 1.5rem;
+        margin-top: 1.2rem;
         gap: 1rem;
     }
     
@@ -226,64 +141,65 @@ st.markdown("""
         background: var(--gradient-1);
         color: white;
         border: none;
-        padding: 0.875rem 2rem;
-        border-radius: 16px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 12px;
         font-weight: 600;
         font-size: 1rem;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(67, 97, 238, 0.4);
         position: relative;
         overflow: hidden;
         z-index: 1;
         width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
-    .nav-button:before {
+    .nav-button::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 0;
+        width: 100%;
         height: 100%;
         background: rgba(255, 255, 255, 0.2);
-        transition: width 0.4s ease-in-out;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
         z-index: -1;
+    }
+    
+    .nav-button:hover::before {
+        transform: translateX(0);
     }
     
     .nav-button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.4);
-    }
-    
-    .nav-button:hover:before {
-        width: 100%;
-    }
-    
-    .nav-button:active {
-        transform: translateY(-1px);
+        box-shadow: 0 10px 15px -3px rgba(67, 97, 238, 0.5);
     }
     
     .nav-button.active {
         background: var(--gradient-2);
-        box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3);
+        box-shadow: 0 4px 6px -1px rgba(247, 37, 133, 0.4);
     }
     
-    /* Unified Content Section */
+    /* Content Section */
     .content-section {
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: 24px;
-        padding: 2.8rem;
-        margin: 2.8rem 0;
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 1.5rem 0;
         box-shadow: var(--card-shadow);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
         overflow: hidden;
+        color: #000000;
+        border-left: 4px solid var(--primary);
     }
     
-    .content-section:before {
+    .content-section::before {
         content: "";
         position: absolute;
         top: 0;
@@ -295,35 +211,76 @@ st.markdown("""
     
     .section-title {
         font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: #000000;
-        margin-bottom: 1.8rem;
+        margin-bottom: 1.2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
+        position: relative;
+    }
+    
+    .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 1.5px;
     }
     
     .section-icon {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         background: var(--gradient-1);
         color: white;
-        border-radius: 16px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        font-size: 1.2rem;
+        box-shadow: 0 4px 6px -1px rgba(67, 97, 238, 0.4);
+    }
+    
+    /* Subsection dividers within content sections */
+    .subsection {
+        margin: 2rem 0;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .subsection:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .subsection-icon {
+        font-size: 1.4rem;
+        color: var(--primary);
     }
     
     /* Form Elements */
     .stTextArea, .stFileUploader, .stSelectbox, .stSlider {
-        background: rgba(255, 255, 255, 0.98);
-        border-radius: 16px;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        padding: 1.4rem;
-        margin-bottom: 1.4rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        margin-bottom: 1rem;
         transition: all 0.3s ease;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         color: #000000;
@@ -331,12 +288,12 @@ st.markdown("""
     
     .stTextArea:focus, .stFileUploader:focus, .stSelectbox:focus, .stSlider:focus {
         border-color: var(--primary);
-        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
         outline: none;
     }
     
     .stTextArea > div > textarea {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Inter', sans-serif;
         font-size: 1rem;
         line-height: 1.5;
         color: #000000;
@@ -347,121 +304,125 @@ st.markdown("""
         background: var(--gradient-1);
         color: white;
         border: none;
-        padding: 1rem 2.5rem;
-        border-radius: 16px;
+        padding: 0.8rem 2rem;
+        border-radius: 12px;
         font-weight: 600;
         font-size: 1.1rem;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(67, 97, 238, 0.4);
         width: 100%;
-        margin-top: 1.8rem;
+        margin-top: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
         position: relative;
         overflow: hidden;
-        z-index: 1;
     }
     
-    .stButton > button:before {
+    .stButton > button::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 0;
+        width: 100%;
         height: 100%;
         background: rgba(255, 255, 255, 0.2);
-        transition: width 0.4s ease-in-out;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
         z-index: -1;
+    }
+    
+    .stButton > button:hover::before {
+        transform: translateY(0);
     }
     
     .stButton > button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.4);
-    }
-    
-    .stButton > button:hover:before {
-        width: 100%;
-    }
-    
-    .stButton > button:active {
-        transform: translateY(-1px);
+        box-shadow: 0 10px 15px -3px rgba(67, 97, 238, 0.5);
     }
     
     /* Progress Bar */
     .stProgress > div > div > div {
         background: var(--gradient-3);
         border-radius: 10px;
-        height: 12px;
+        height: 10px;
     }
     
     /* Metrics */
     .metric-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 2.2rem;
-        margin: 2.2rem 0;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
     }
     
     .metric-card {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2.4rem;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 1.5rem;
         flex: 1;
-        min-width: 200px;
+        min-width: 150px;
         box-shadow: var(--card-shadow);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         text-align: center;
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        margin: 1.8rem 0;
+        margin: 1rem 0;
+        color: #000000;
+        border-top: 4px solid var(--primary);
     }
     
-    .metric-card:before {
+    .metric-card::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 5px;
+        height: 4px;
         background: var(--gradient-4);
     }
     
     .metric-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
     }
     
     .metric-value {
         font-family: 'Space Grotesk', sans-serif;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 800;
         color: #000000;
         margin: 0.5rem 0;
     }
     
     .metric-label {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: #000000;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     /* Data Display */
     .dataframe-container {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2.4rem;
-        margin: 2.4rem 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
         box-shadow: var(--card-shadow);
         overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #000000;
+        border-left: 4px solid var(--primary);
     }
     
     .stDataFrame {
-        border-radius: 16px;
+        border-radius: 12px;
         overflow: hidden;
     }
     
@@ -472,98 +433,129 @@ st.markdown("""
     
     .stDataFrame > div > div > table th {
         background: var(--gradient-1);
-        color: #000000;
-        font-weight: 600;
+        color: #ffffff;
+        font-weight: 700;
         text-align: left;
-        padding: 1.25rem;
-        font-size: 1.1rem;
+        padding: 1rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .stDataFrame > div > div > table td {
-        padding: 1.25rem;
+        padding: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         font-size: 1rem;
         color: #000000;
     }
     
-    /* Suggestions */
-    .suggestions-container {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2.4rem;
-        margin: 2.4rem 0;
+    /* Status Messages - FIXED */
+    .status-message {
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
         box-shadow: var(--card-shadow);
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .suggestions-container:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: var(--gradient-2);
-    }
-    
-    .suggestions-header {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: #000000;
-        margin-bottom: 2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        text-align: left;
     }
     
-    .suggestion-item {
-        background: rgba(99, 102, 241, 0.1);
-        border-left: 5px solid var(--primary);
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        border-radius: 0 16px 16px 0;
+    .status-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex-shrink: 0;
+        color: white;
+    }
+    
+    .status-text {
+        flex: 1;
         font-size: 1.1rem;
-        color: #000000;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        text-align: left;
     }
     
-    .suggestion-item:hover {
-        background: rgba(99, 102, 241, 0.2);
-        transform: translateX(8px);
-        box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+    .success-message {
+        background: var(--success-bg);
+        border: 1px solid var(--success-border);
+        border-left: 4px solid #28a745;
+    }
+    
+    .success-message .status-icon {
+        background: #28a745;
+    }
+    
+    .success-message .status-text {
+        color: var(--success-text);
+    }
+    
+    .error-message {
+        background: var(--error-bg);
+        border: 1px solid var(--error-border);
+        border-left: 4px solid #dc3545;
+    }
+    
+    .error-message .status-icon {
+        background: #dc3545;
+    }
+    
+    .error-message .status-text {
+        color: var(--error-text);
+    }
+    
+    .info-message {
+        background: var(--info-bg);
+        border: 1px solid var(--info-border);
+        border-left: 4px solid #17a2b8;
+    }
+    
+    .info-message .status-icon {
+        background: #17a2b8;
+    }
+    
+    .info-message .status-text {
+        color: var(--info-text);
     }
     
     /* Verdict Badge */
     .verdict-badge {
         display: inline-block;
-        padding: 0.75rem 2rem;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-top: 1rem;
+        padding: 0.6rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 0.8rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .verdict-high {
-        background: rgba(16, 185, 129, 0.2);
-        border: 1px solid rgba(16, 185, 129, 0.5);
+        background: var(--success-bg);
+        border: 1px solid var(--success-border);
+        color: var(--success-text);
     }
     
     .verdict-medium {
-        background: rgba(236, 72, 153, 0.2);
-        border: 1px solid rgba(236, 72, 153, 0.5);
+        background: rgba(248, 150, 30, 0.15);
+        border: 1px solid rgba(248, 150, 30, 0.3);
+        color: #9c4a1a;
     }
     
     .verdict-low {
-        background: rgba(59, 130, 246, 0.2);
-        border: 1px solid rgba(59, 130, 246, 0.5);
+        background: var(--info-bg);
+        border: 1px solid var(--info-border);
+        color: var(--info-text);
     }
     
     /* Hide Streamlit Elements */
@@ -572,123 +564,77 @@ st.markdown("""
         height: 0;
     }
     
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .main-title {
-            font-size: 2rem;
-        }
-        
-        .nav-container {
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .metric-container {
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .content-section {
-            padding: 1.8rem;
-            margin: 1.8rem 0;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-        }
-    }
-    
-    /* API Key Status */
+    /* API Key Status - FIXED */
     .api-status {
-        background: rgba(16, 185, 129, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 16px;
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid rgba(16, 185, 129, 0.2);
+        background: var(--success-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--success-border);
         display: flex;
         align-items: center;
         gap: 1rem;
-        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+        box-shadow: 0 4px 6px -1px rgba(40, 167, 69, 0.2);
+        border-left: 4px solid #28a745;
+        text-align: left;
     }
     
     .api-status-icon {
-        width: 32px;
-        height: 32px;
-        background: var(--gradient-4);
+        width: 30px;
+        height: 30px;
+        background: #28a745;
         color: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1rem;
-        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        box-shadow: 0 4px 6px -1px rgba(40, 167, 69, 0.3);
     }
     
     .api-status-text {
-        font-size: 1.1rem;
-        color: #000000;
+        font-size: 1rem;
+        color: var(--success-text);
         font-weight: 600;
+        margin: 0;
+        padding: 0;
+        text-align: left;
     }
     
     .api-error {
-        background: rgba(244, 63, 94, 0.1);
-        border: 1px solid rgba(244, 63, 94, 0.2);
+        background: var(--error-bg);
+        border: 1px solid var(--error-border);
+        box-shadow: 0 4px 6px -1px rgba(220, 53, 69, 0.2);
+        border-left: 4px solid #dc3545;
     }
     
     .api-error .api-status-icon {
-        background: var(--gradient-2);
+        background: #dc3545;
     }
     
     .api-error .api-status-text {
+        color: var(--error-text);
+    }
+    
+    /* Suggestions */
+    .suggestion-item {
+        background: rgba(67, 97, 238, 0.1);
+        border-left: 4px solid var(--primary);
+        padding: 1rem 1.2rem;
+        margin-bottom: 1rem;
+        border-radius: 0 12px 12px 0;
+        font-size: 1rem;
         color: #000000;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     
-    /* Error Message */
-    .error-container {
-        background: rgba(244, 63, 94, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2.5rem;
-        margin: 2rem 0;
-        box-shadow: var(--card-shadow);
-        border: 1px solid rgba(244, 63, 94, 0.2);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .error-container:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: var(--gradient-3);
-    }
-    
-    .error-icon {
-        font-size: 4rem;
-        color: var(--accent);
-        margin-bottom: 1.5rem;
-    }
-    
-    .error-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: #000000;
-        margin-bottom: 1.5rem;
-    }
-    
-    .error-message {
-        font-size: 1.1rem;
-        color: #000000;
-        margin-bottom: 2rem;
-        line-height: 1.6;
+    .suggestion-item:hover {
+        background: rgba(67, 97, 238, 0.15);
+        transform: translateX(8px);
+        box-shadow: 0 10px 15px -3px rgba(67, 97, 238, 0.3);
     }
     
     /* Loading Animation */
@@ -703,7 +649,7 @@ st.markdown("""
     .loading-spinner {
         width: 60px;
         height: 60px;
-        border: 5px solid rgba(255, 255, 255, 0.3);
+        border: 4px solid rgba(255, 255, 255, 0.3);
         border-radius: 50%;
         border-top-color: var(--primary);
         animation: spin 1s ease-in-out infinite;
@@ -716,233 +662,148 @@ st.markdown("""
     
     .loading-text {
         font-size: 1.2rem;
-        color: #000000;
-        font-weight: 500;
-    }
-    
-    /* Fix Streamlit Elements */
-    .element-container {
-        margin-bottom: 1rem;
+        color: #ffffff;
+        font-weight: 600;
+        text-align: center;
     }
     
     /* Fix for text area height */
     .stTextArea > div > div > textarea {
-        min-height: 220px;
+        min-height: 180px;
     }
     
-    /* Fix for file uploader */
-    .stFileUploader > div > div > span {
-        font-weight: 500;
-        color: #000000;
+    /* Custom text colors */
+    .upload-resume-text {
+        color: var(--accent) !important;
+        font-weight: 600;
     }
     
-    /* Fix for selectbox */
-    .stSelectbox > div > div > select {
-        font-weight: 500;
-        color: #000000;
+    .detailed-analysis-text {
+        color: var(--primary) !important;
+        font-weight: 600;
     }
     
-    /* Fix for slider */
-    .stSlider > div > div > div > div {
-        background: var(--gradient-1);
+    /* Selectbox with scrollbar */
+    .custom-selectbox {
+        max-height: 200px;
+        overflow-y: auto;
     }
     
-    /* Fix for dataframe */
-    .stDataFrame {
-        border: none;
-    }
-    
-    /* Fix for success and error messages */
-    .stSuccess, .stError, .stInfo, .stWarning {
+    /* Blue recommendation box */
+    .blue-recommendation {
+        background: var(--info-bg);
+        border: 1px solid var(--info-border);
+        border-left: 4px solid #17a2b8;
         border-radius: 16px;
-        padding: 1rem 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        color: #000000;
-    }
-    
-    .stSuccess {
-        background: rgba(16, 185, 129, 0.2);
-        border-left: 5px solid var(--secondary);
-    }
-    
-    .stError {
-        background: rgba(244, 63, 94, 0.2);
-        border-left: 5px solid var(--accent);
-    }
-    
-    .stInfo {
-        background: rgba(99, 102, 241, 0.2);
-        border-left: 5px solid var(--primary);
-    }
-    
-    .stWarning {
-        background: rgba(245, 158, 11, 0.2);
-        border-left: 5px solid var(--warning);
-    }
-    
-    /* Text Color Adjustments */
-    h1, h2, h3, h4, h5, h6, .stMarkdown, p, span, div {
-        color: #000000;
-    }
-    
-    .stTextInput > div > input {
-        color: #000000;
-    }
-    
-    /* Dashboard specific styles */
-    .stSelectbox[data-testid="stSelectbox"] label {
-        color: #000000;
-        font-weight: 600;
-    }
-    
-    .stSlider[data-testid="stSlider"] label {
-        color: #000000;
-        font-weight: 600;
-    }
-    
-    /* Evaluation details styles */
-    .evaluation-details {
-        background: rgba(255, 255, 255, 0.98);
-        border-radius: 24px;
-        padding: 2.4rem;
-        margin: 2.4rem 0;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
         box-shadow: var(--card-shadow);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
     
-    .evaluation-details h3 {
-        color: #000000;
-        margin-bottom: 1.5rem;
-    }
-    
-    .evaluation-details p {
-        color: #000000;
-        margin-bottom: 1.2rem;
-    }
-    
-    /* Animated Background Elements */
-    .bg-animation {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        overflow: hidden;
-    }
-    
-    .bg-animation span {
-        position: absolute;
-        display: block;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        animation: move 25s linear infinite;
-        bottom: -150px;
+    .blue-recommendation .status-icon {
+        background: #17a2b8;
+        color: white;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex-shrink: 0;
     }
     
-    .bg-animation span:nth-child(1) {
-        left: 25%;
-        width: 80px;
-        height: 80px;
-        animation-delay: 0s;
+    .blue-recommendation .status-text {
+        color: var(--info-text);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        text-align: left;
     }
     
-    .bg-animation span:nth-child(2) {
-        left: 10%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 2s;
-        animation-duration: 12s;
-    }
-    
-    .bg-animation span:nth-child(3) {
-        left: 70%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 4s;
-    }
-    
-    .bg-animation span:nth-child(4) {
-        left: 40%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 0s;
-        animation-duration: 18s;
-    }
-    
-    .bg-animation span:nth-child(5) {
-        left: 65%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 0s;
-    }
-    
-    .bg-animation span:nth-child(6) {
-        left: 75%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 3s;
-    }
-    
-    .bg-animation span:nth-child(7) {
-        left: 35%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 7s;
-    }
-    
-    .bg-animation span:nth-child(8) {
-        left: 50%;
-        width: 25px;
-        height: 25px;
-        animation-delay: 15s;
-        animation-duration: 45s;
-    }
-    
-    .bg-animation span:nth-child(9) {
-        left: 20%;
-        width: 15px;
-        height: 15px;
-        animation-delay: 2s;
-        animation-duration: 35s;
-    }
-    
-    .bg-animation span:nth-child(10) {
-        left: 85%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-        animation-duration: 11s;
-    }
-    
-    @keyframes move {
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .main-title {
+            font-size: 1.8rem;
         }
-        100% {
-            transform: translateY(-1000px) rotate(720deg);
-            opacity: 0;
+        
+        .nav-container {
+            flex-direction: column;
+            gap: 0.8rem;
         }
+        
+        .metric-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .content-section {
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+        }
+        
+        .status-message {
+            padding: 1.2rem;
+        }
+        
+        .status-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+    
+    /* Advanced Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .content-section {
+        animation: fadeIn 0.6s ease-out;
+    }
+    
+    /* Glassmorphism Effect */
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--gradient-1);
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
     }
     </style>
-    
-    <!-- Animated Background Elements -->
-    <div class="bg-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
 """, unsafe_allow_html=True)
 
 # Initialize session state
@@ -964,7 +825,7 @@ gemini_api_key = os.getenv("GEMINI_API_KEY")
 def navigation():
     st.markdown("""
         <div class="main-header">
-            <h1 class="main-title">Automated Resume Relevance Check System</h1>
+            <h1 class="main-title">AI Resume Relevance Analyzer</h1>
             <div class="nav-container">
     """, unsafe_allow_html=True)
     
@@ -1020,34 +881,41 @@ def show_home():
             4. Restart the application
         """)
     
+    # Combined Job Description and Resume Upload Section
     st.markdown("""
         <div class="content-section">
             <div class="section-title">
                 <div class="section-icon">📝</div>
-                Job Description
+                Resume Analysis Setup
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Enter the complete job description including required skills, qualifications, and responsibilities.
-            </p>
-        </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">📄</span>
+                    Job Description
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Enter the complete job description including required skills, qualifications, and responsibilities.
+                </p>
     """, unsafe_allow_html=True)
     
-    job_desc = st.text_area("Paste the job description here", height=220, 
+    job_desc = st.text_area("Paste the job description here", height=180, 
                             placeholder="Enter the complete job description including required skills, qualifications, and responsibilities...")
     
     st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">📄</div>
-                Upload Resume
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Upload your resume in PDF or DOCX format for analysis.
-            </p>
-        </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">🔄</span>
+                    <span class="upload-resume-text">Upload Resume</span>
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Upload your resume in PDF or DOCX format for analysis.
+                </p>
     """, unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader("Upload your resume (PDF or DOCX)", type=["pdf", "docx"])
+    
+    st.markdown("</div></div>", unsafe_allow_html=True)
     
     # Show Gemini availability status
     if not GEMINI_AVAILABLE:
@@ -1085,18 +953,29 @@ def show_home():
                     st.query_params["page"] = "results"
                     st.rerun()
     else:
-        st.info("📥 Please upload a resume and enter the job description to begin analysis.")
+        # Custom styled info message
+        st.markdown("""
+            <div class="info-message status-message">
+                <div class="status-icon">📥</div>
+                <div class="status-text">Please upload a resume and enter the job description to begin analysis.</div>
+            </div>
+        """, unsafe_allow_html=True)
 
 # Results page
 def show_results():
     # Check if analysis results exist
     if st.session_state.analysis_results is None:
         st.markdown("""
-            <div class="error-container">
-                <div class="error-icon">⚠️</div>
-                <div class="error-title">No Analysis Results Found</div>
-                <div class="error-message">
-                    It looks like you haven't analyzed any resume yet. Please go back to the home page to upload a resume and job description.
+            <div class="content-section">
+                <div class="section-title">
+                    <div class="section-icon">⚠️</div>
+                    No Analysis Results Found
+                </div>
+                <div class="error-message status-message">
+                    <div class="status-icon">⚠️</div>
+                    <div class="status-text">
+                        It looks like you haven't analyzed any resume yet. Please go back to the home page to upload a resume and job description.
+                    </div>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -1109,108 +988,104 @@ def show_results():
     
     results = st.session_state.analysis_results
     
+    # Combined Results and Score Breakdown Section
     st.markdown("""
         <div class="content-section">
             <div class="section-title">
                 <div class="section-icon">📊</div>
                 Resume Match Results
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Your resume has been analyzed against the job description. Here are the results:
+            <p style="color: #000000; margin-bottom: 1.5rem;">
+                Your resume has been analyzed against the job description. Here are the comprehensive results:
             </p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    # Score and verdict
-    st.markdown("""
-        <div class="metric-container">
-            <div class="metric-card">
-                <div class="metric-label">Matching Score</div>
-                <div class="metric-value">{}%</div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">🎯</span>
+                    Overall Performance
+                </div>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-label">Matching Score</div>
+                        <div class="metric-value">{}%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Verdict</div>
+                        <div class="verdict-badge verdict-{}">{}</div>
+                    </div>
+                </div>
             </div>
-            <div class="metric-card">
-                <div class="metric-label">Verdict</div>
-                <div class="verdict-badge verdict-{}">{}</div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">📈</span>
+                    Score Breakdown
+                </div>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-label">Hard Match Score</div>
+                        <div class="metric-value">{}%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Semantic Match Score</div>
+                        <div class="metric-value">{}%</div>
+                    </div>
+                </div>
             </div>
         </div>
-    """.format(results['score'], results['verdict'].lower(), results['verdict']), unsafe_allow_html=True)
+    """.format(results['score'], results['verdict'].lower(), results['verdict'], results['hard_score'], results['semantic_score']), unsafe_allow_html=True)
     
     # Progress bar
     st.progress(results["score"] / 100)
     
-    # Score breakdown
+    # Combined Skills Analysis Section
     st.markdown("""
         <div class="content-section">
             <div class="section-title">
-                <div class="section-icon">📈</div>
-                Score Breakdown
+                <div class="section-icon">🎯</div>
+                Skills Analysis & Recommendations
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Detailed breakdown of how your resume matches the job requirements:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Hard Match Score</div>
-                <div class="metric-value">{}%</div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">✅</span>
+                    Matched Skills
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Skills from your resume that match the job requirements:
+                </p>
+                <div class="success-message status-message">
+                    <div class="status-icon">✅</div>
+                    <div class="status-text">{}</div>
+                </div>
             </div>
-        """.format(results['hard_score']), unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Semantic Match Score</div>
-                <div class="metric-value">{}%</div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">⚠️</span>
+                    Missing Skills
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Skills mentioned in the job description that are not present in your resume:
+                </p>
+                <div class="error-message status-message">
+                    <div class="status-icon">⚠️</div>
+                    <div class="status-text">{}</div>
+                </div>
             </div>
-        """.format(results['semantic_score']), unsafe_allow_html=True)
-    
-    # Skills analysis
-    st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">✅</div>
-                Matched Skills
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Skills from your resume that match the job requirements:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    st.success(", ".join(results["matched_skills"]))
-    
-    st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">⚠️</div>
-                Missing Skills
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Skills mentioned in the job description that are not present in your resume:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    st.error(", ".join(results["missing_skills"]))
-    
-    # Suggestions
-    st.markdown("""
-        <div class="suggestions-container">
-            <div class="suggestions-header">
-                <div class="section-icon">💡</div>
-                Suggestions to Improve Resume
-            </div>
-            <p style="color: #000000; margin-bottom: 1.5rem;">
-                Here are some suggestions to improve your resume based on the analysis:
-            </p>
-    """, unsafe_allow_html=True)
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">💡</span>
+                    Improvement Suggestions
+                </div>
+                <p style="color: #000000; margin-bottom: 1.5rem;">
+                    Here are some suggestions to improve your resume based on the analysis:
+                </p>
+    """.format(", ".join(results["matched_skills"]), ", ".join(results["missing_skills"])), unsafe_allow_html=True)
     
     for suggestion in results["suggestions"]:
         st.markdown(f'<div class="suggestion-item">🔹 {suggestion}</div>', unsafe_allow_html=True)
     
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("""
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
     
     # Priority table
     st.markdown("""
@@ -1219,7 +1094,7 @@ def show_results():
                 <div class="section-icon">📌</div>
                 Priority Improvements
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
+            <p style="color: #000000; margin-bottom: 1rem;">
                 Focus on these high-priority improvements to increase your match score:
             </p>
         </div>
@@ -1236,29 +1111,24 @@ def show_results():
 
 # Dashboard page
 def show_dashboard():
+    # Combined Filter Section
     st.markdown("""
         <div class="content-section">
             <div class="section-title">
                 <div class="section-icon">📊</div>
-                Placement Team Dashboard
+                Dashboard Controls & Filters
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                View and manage all resume evaluations:
+            <p style="color: #000000; margin-bottom: 1.5rem;">
+                View and manage all resume evaluations with advanced filtering options:
             </p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    # Filters
-    st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">🔍</div>
-                Filter Evaluations
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Filter evaluations by score and verdict:
-            </p>
-        </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">🔍</span>
+                    Filter Evaluations
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Filter evaluations by score and verdict to find specific results:
+                </p>
     """, unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
@@ -1266,6 +1136,8 @@ def show_dashboard():
         min_score = st.slider("Minimum Score", 0, 100, 0)
     with col2:
         verdict_filter = st.selectbox("Verdict", ["All", "High", "Medium", "Low"])
+    
+    st.markdown("</div></div>", unsafe_allow_html=True)
     
     # Apply filters
     filters = {"min_score": min_score}
@@ -1275,17 +1147,21 @@ def show_dashboard():
     # Get evaluations
     evaluations = db.get_evaluations(filters)
     
-    # Display evaluations
+    # Combined Evaluations List and Details Section
     st.markdown("""
         <div class="content-section">
             <div class="section-title">
                 <div class="section-icon">📋</div>
-                Resume Evaluations ({})
+                Resume Evaluations & Analysis
             </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                List of all resume evaluations matching your filters:
-            </p>
-        </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">📊</span>
+                    Evaluations List ({} Records Found)
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Complete list of resume evaluations matching your filter criteria:
+                </p>
     """.format(len(evaluations)), unsafe_allow_html=True)
     
     if evaluations:
@@ -1303,101 +1179,125 @@ def show_dashboard():
         df = pd.DataFrame(data)
         st.dataframe(df, use_container_width=True)
         
-        # Allow viewing details
-        selected_id = st.selectbox("Select evaluation to view details", df["ID"])
-        if selected_id:
+        st.markdown("""
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">🔍</span>
+                    <span class="detailed-analysis-text">Detailed Analysis View</span>
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Select any evaluation ID from the table above to view comprehensive analysis details:
+                </p>
+        """, unsafe_allow_html=True)
+        
+        # Create options for selectbox with ID and resume name
+        options = []
+        for eval in evaluations:
+            options.append(f"{eval['id']} - {eval['resume_name']}")
+        
+        # Allow viewing details with custom selectbox
+        selected_option = st.selectbox("Choose evaluation ID for detailed analysis", options, key="eval_selector")
+        
+        if selected_option:
+            # Extract ID from selected option
+            selected_id = int(selected_option.split(" - ")[0])
             selected_eval = next(eval for eval in evaluations if eval["id"] == selected_id)
-            display_evaluation_details(selected_eval)
+            display_evaluation_details_combined(selected_eval)
+        
+        st.markdown("</div></div>", unsafe_allow_html=True)
     else:
-        st.info("No evaluations found matching the selected criteria.")
+        st.markdown("""
+            </div>
+            <div class="info-message status-message">
+                <div class="status-icon">📊</div>
+                <div class="status-text">No evaluations found matching the selected criteria.</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
-def display_evaluation_details(evaluation):
-    st.markdown("""
-        <div class="evaluation-details">
-            <div class="section-title">
-                <div class="section-icon">📝</div>
-                Evaluation Details
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Detailed analysis results for this resume:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Score</div>
-                <div class="metric-value">{}%</div>
-            </div>
-        """.format(evaluation['score']), unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Verdict</div>
-                <div class="verdict-badge verdict-{}">{}</div>
-            </div>
-        """.format(evaluation['verdict'].lower(), evaluation['verdict']), unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Hard Match</div>
-                <div class="metric-value">{}%</div>
-            </div>
-        """.format(evaluation['hard_score']), unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-            <div class="metric-card">
-                <div class="metric-label">Semantic Match</div>
-                <div class="metric-value">{}%</div>
-            </div>
-        """.format(evaluation['semantic_score']), unsafe_allow_html=True)
-    
-    st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">✅</div>
-                Matched Skills
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Skills from the resume that match the job requirements:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    st.success(", ".join(evaluation["matched_skills"].split(',')))
-    
-    st.markdown("""
-        <div class="content-section">
-            <div class="section-title">
-                <div class="section-icon">⚠️</div>
-                Missing Skills
-            </div>
-            <p style="color: #000000; margin-bottom: 1.2rem;">
-                Skills mentioned in the job description that are not present in the resume:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
-    st.error(", ".join(evaluation["missing_skills"].split(',')))
-    
-    st.markdown("""
-        <div class="suggestions-container">
-            <div class="suggestions-header">
-                <div class="section-icon">💡</div>
-                Suggestions
-            </div>
-            <p style="color: #000000; margin-bottom: 1.5rem;">
-                Suggestions to improve this resume:
-            </p>
-    """, unsafe_allow_html=True)
-    
+def display_evaluation_details_combined(evaluation):
+    # Generate HTML for suggestions
+    suggestions_html = ""
     suggestions = evaluation["suggestions"].split('|')
     for suggestion in suggestions:
-        st.markdown(f'<div class="suggestion-item">🔹 {suggestion}</div>', unsafe_allow_html=True)
+        suggestions_html += f'<div class="suggestion-item">🔹 {suggestion}</div>'
     
-    st.markdown("</div>", unsafe_allow_html=True)
+    # Create a single HTML structure for the entire section
+    st.markdown(f"""
+        <div class="content-section" style="margin-top: 1.5rem;">
+            <div class="section-title">
+                <div class="section-icon">📊</div>
+                Comprehensive Evaluation Report
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">📊</span>
+                    Performance Metrics
+                </div>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-label">Score</div>
+                        <div class="metric-value">{evaluation['score']}%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Verdict</div>
+                        <div class="verdict-badge verdict-{evaluation['verdict'].lower()}">{evaluation['verdict']}</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Hard Match</div>
+                        <div class="metric-value">{evaluation['hard_score']}%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Semantic Match</div>
+                        <div class="metric-value">{evaluation['semantic_score']}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">✅</span>
+                    Skills Assessment
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Skills from the resume that match the job requirements:
+                </p>
+                <div class="success-message status-message">
+                    <div class="status-icon">✅</div>
+                    <div class="status-text">{", ".join(evaluation["matched_skills"].split(','))}</div>
+                </div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">⚠️</span>
+                    Gap Analysis
+                </div>
+                <p style="color: #000000; margin-bottom: 1rem;">
+                    Skills mentioned in the job description that are not present in the resume:
+                </p>
+                <div class="error-message status-message">
+                    <div class="status-icon">⚠️</div>
+                    <div class="status-text">{", ".join(evaluation["missing_skills"].split(','))}</div>
+                </div>
+            </div>
+            <div class="subsection">
+                <div class="subsection-title">
+                    <span class="subsection-icon">💡</span>
+                    Recommendations
+                </div>
+                <p style="color: #000000; margin-bottom: 1.5rem;">
+                    Actionable suggestions to improve this resume:
+                </p>
+                {suggestions_html}
+                <div class="blue-recommendation">
+                    <div class="status-icon">💡</div>
+                    <div class="status-text">
+                        <strong>AI Recommendation:</strong> Based on the analysis, consider adding the missing skills and highlighting your matched skills more prominently in your resume.
+                    </div>
+                </div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Main app
 def main():
